@@ -1,0 +1,201 @@
+THIS IS THE COMPUTATIONAL PROGRAM FOR ASSIGNMENT 1 
+
+INITIALIZATION OF MATRIX
+The intialized Matrix R: 
+	1	0.8	0.6	
+	0.8	1	0.7	
+	0.6	0.7	1	
+
+--Perform Cholesky Decomposition (LAPACK ROUTINE)
+	1	0.8	0.6	
+	0.8	0.6	0.7	
+	0.6	0.36667	0.71102	
+
+	1	0	0	
+	0.8	0.6	0	
+	0.6	0.36667	0.71102	
+
+--Initization of VSL Random Stream
+Random Stream is Successfully Initiated 
+
+
+===SIMULATIONS OF RANDOM VARIABLES=====
+   SAMPLE SIZE: 10
+
+--Generate Gaussian Random Variable, Standard Normal
+--Simulation of 30 tuples of standard normal variables is completed
+  Takes 0 seconds
+--Recovering Correlated Random Variables (CBLAS_DGEMM)
+--Finished Simulation and Sampling 
+
+--Calculating the Summary Statistics
+
+-- Finish calculation of summary statistics,OUTPUT:
+Computed Mean
+	0.15999	0.082977	0.44595	
+
+Covariance Matrix
+	0.91356	0.73099	0.65388	
+	0.73099	0.98828	0.79191	
+	0.65388	0.79191	1.6097	
+
+Correlation Matrix
+	0.91356	0.76931	0.53921	
+	0.76931	0.98828	0.62785	
+	0.53921	0.62785	1.6097	
+
+ERROR OF ENTRIES:
+	-0.086442	-0.038363	-0.10132	
+	-0.038363	-0.011721	-0.10307	
+	-0.10132	-0.10307	0.60974	
+
+===SIMULATIONS OF RANDOM VARIABLES=====
+   SAMPLE SIZE: 100
+
+--Generate Gaussian Random Variable, Standard Normal
+--Simulation of 300 tuples of standard normal variables is completed
+  Takes 0 seconds
+--Recovering Correlated Random Variables (CBLAS_DGEMM)
+--Finished Simulation and Sampling 
+
+--Calculating the Summary Statistics
+
+-- Finish calculation of summary statistics,OUTPUT:
+Computed Mean
+	-0.03477	0.042373	0.086634	
+
+Covariance Matrix
+	1.1947	0.96568	0.66647	
+	0.96568	1.0619	0.67603	
+	0.66647	0.67603	1.1098	
+
+Correlation Matrix
+	1.1947	0.85737	0.5788	
+	0.85737	1.0619	0.62273	
+	0.5788	0.62273	1.1098	
+
+ERROR OF ENTRIES:
+	0.19468	0.071711	-0.035325	
+	0.071711	0.061894	-0.11038	
+	-0.035325	-0.11038	0.1098	
+
+===SIMULATIONS OF RANDOM VARIABLES=====
+   SAMPLE SIZE: 1000
+
+--Generate Gaussian Random Variable, Standard Normal
+--Simulation of 3000 tuples of standard normal variables is completed
+  Takes 0 seconds
+--Recovering Correlated Random Variables (CBLAS_DGEMM)
+--Finished Simulation and Sampling 
+
+--Calculating the Summary Statistics
+
+-- Finish calculation of summary statistics,OUTPUT:
+Computed Mean
+	-0.002792	-0.0019858	-0.005908	
+
+Covariance Matrix
+	1.0362	0.83757	0.63152	
+	0.83757	1.0472	0.74608	
+	0.63152	0.74608	1.0106	
+
+Correlation Matrix
+	1.0362	0.80405	0.61713	
+	0.80405	1.0472	0.72525	
+	0.61713	0.72525	1.0106	
+
+ERROR OF ENTRIES:
+	0.036219	0.0050674	0.028542	
+	0.0050674	0.047169	0.036076	
+	0.028542	0.036076	0.010594	
+
+===SIMULATIONS OF RANDOM VARIABLES=====
+   SAMPLE SIZE: 10000
+
+--Generate Gaussian Random Variable, Standard Normal
+--Simulation of 30000 tuples of standard normal variables is completed
+  Takes 0 seconds
+--Recovering Correlated Random Variables (CBLAS_DGEMM)
+--Finished Simulation and Sampling 
+
+--Calculating the Summary Statistics
+
+-- Finish calculation of summary statistics,OUTPUT:
+Computed Mean
+	-0.0072914	-0.010641	-0.0093922	
+
+Covariance Matrix
+	0.98615	0.79848	0.60559	
+	0.79848	1.0115	0.70855	
+	0.60559	0.70855	1.0038	
+
+Correlation Matrix
+	0.98615	0.79949	0.60866	
+	0.79949	1.0115	0.70316	
+	0.60866	0.70316	1.0038	
+
+ERROR OF ENTRIES:
+	-0.013854	-0.00063722	0.014431	
+	-0.00063722	0.011494	0.0045203	
+	0.014431	0.0045203	0.0038428	
+
+===SIMULATIONS OF RANDOM VARIABLES=====
+   SAMPLE SIZE: 100000
+
+--Generate Gaussian Random Variable, Standard Normal
+--Simulation of 300000 tuples of standard normal variables is completed
+  Takes 0 seconds
+--Recovering Correlated Random Variables (CBLAS_DGEMM)
+--Finished Simulation and Sampling 
+
+--Calculating the Summary Statistics
+
+-- Finish calculation of summary statistics,OUTPUT:
+Computed Mean
+	-0.0073365	-0.0034366	-8.7141e-005	
+
+Covariance Matrix
+	0.99306	0.79428	0.5965	
+	0.79428	0.99677	0.698	
+	0.5965	0.698	0.99589	
+
+Correlation Matrix
+	0.99306	0.79835	0.59981	
+	0.79835	0.99677	0.70057	
+	0.59981	0.70057	0.99589	
+
+ERROR OF ENTRIES:
+	-0.0069414	-0.0020653	-0.00031039	
+	-0.0020653	-0.003234	0.00081388	
+	-0.00031039	0.00081388	-0.0041141	
+
+===SIMULATIONS OF RANDOM VARIABLES=====
+   SAMPLE SIZE: 1000000
+
+--Generate Gaussian Random Variable, Standard Normal
+--Simulation of 3000000 tuples of standard normal variables is completed
+  Takes 0 seconds
+--Recovering Correlated Random Variables (CBLAS_DGEMM)
+--Finished Simulation and Sampling 
+
+--Calculating the Summary Statistics
+
+-- Finish calculation of summary statistics,OUTPUT:
+Computed Mean
+	0.0008276	0.00046654	0.00041501	
+
+Covariance Matrix
+	0.99909	0.79858	0.59872	
+	0.79858	0.99862	0.69879	
+	0.59872	0.69879	0.9992	
+
+Correlation Matrix
+	0.99909	0.7995	0.59923	
+	0.7995	0.99862	0.69955	
+	0.59923	0.69955	0.9992	
+
+ERROR OF ENTRIES:
+	-0.00091345	-0.00062965	-0.001275	
+	-0.00062965	-0.0013805	-0.00063706	
+	-0.001275	-0.00063706	-0.00080245	
+
