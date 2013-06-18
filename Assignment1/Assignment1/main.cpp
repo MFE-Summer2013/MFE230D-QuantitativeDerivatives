@@ -16,7 +16,7 @@ double* relativeError(const double* est, const double* tgt, unsigned int nrows, 
 int main()
 {
 	ofstream myfile;
-	myfile.open ("test.txt");
+	myfile.open ("results.txt");
 	myfile << "THIS IS THE COMPUTATIONAL PROGRAM FOR ASSIGNMENT 1 \n\n";
 	myfile << "INITIALIZATION OF MATRIX" << endl;
 	unsigned int m = 3, n = 3;
@@ -34,6 +34,7 @@ int main()
 
 	displayMatrix(myfile, SIGMA, m, n);
 
+	
 	myfile << "--Perform Cholesky Decomposition (LAPACK ROUTINE)" << endl;
 	LAPACKE_dpotrf(LAPACK_ROW_MAJOR, 'L', m, SIGMA, n);
 	
@@ -44,12 +45,12 @@ int main()
 	}
 
 	displayMatrix(myfile, SIGMA, m, n);
-
+	
 
 	
 	myfile << "--Initization of VSL Random Stream" << endl;
 	VSLStreamStatePtr stream;
-	int seed = 2;
+	int seed = 100;
 	vslNewStream(&stream, VSL_BRNG_MT19937, seed);
 	myfile << "Random Stream is Successfully Initiated \n\n" << endl;
 
@@ -93,8 +94,8 @@ int main()
 		cov_storage = VSL_SS_MATRIX_STORAGE_FULL;
 		cor_storage = VSL_SS_MATRIX_STORAGE_FULL;
 
-		double *cov = new double[n*n];
-		double *cor = new double[n*n];
+		double cov[3][3];
+		double cor[3][3];
 		double *mean = new double[n];
 
 		/***** Create Summary Statistics task *****/
@@ -102,31 +103,40 @@ int main()
 
 		/***** Initialization of the task parameters using FULL_STORAGE
 			for covariance/correlation matrices *****/
-		vsldSSEditCovCor(task, mean, (double*)cov, &cov_storage, (double*)cor, &cor_storage );
-
+		vsldSSEditCovCor( task, mean, (double*)cov, &cov_storage, 0, 0);
+	
 		/***** Compute covariance/correlation matrices using FAST method  *****/
-		vsldSSCompute(task, VSL_SS_COV|VSL_SS_COR, VSL_SS_METHOD_FAST);
+		vsldSSCompute( task, VSL_SS_COV, VSL_SS_METHOD_1PASS );
+
+		vslSSDeleteTask(&task);
+
+		for (int i = 0; i < 3; ++i)
+		{
+			for(int j = 0; j < 3; ++j)
+				cor[i][j] = cov[i][j] / sqrt(cov[i][i] * cov[j][j]);
+		}
 
 		myfile << "-- Finish calculation of summary statistics,OUTPUT:" << endl;
 		myfile << "Computed Mean" << endl;
 		displayMatrix(myfile, mean, 1, 3);
 		myfile << "Covariance Matrix" << endl;
-		displayMatrix(myfile, cov, n,n);
+		displayMatrix(myfile,  (double*)cov, n,n);
 		myfile << "Correlation Matrix" << endl;
-		displayMatrix(myfile, cor, n,n);
-	
+		displayMatrix(myfile,  (double*)cor, n,n);
+
 		myfile << "ERROR OF ENTRIES:" << endl;
-		double* rErr = relativeError(cor, CORR, n, n);
+		double* rErr = relativeError( (double*)cor, CORR, n, n);
 		displayMatrix(myfile, rErr, n, n);
 
-		delete [] cov;
-		delete [] cor;
+		//delete [] cov;
+		//delete [] cor;
 		delete [] mean;
 		delete [] rErr;
 	
 	}
 
 	system("pause");
+	return 0;
 }
 
 void displayMatrix(ofstream& myfile, const double* M, unsigned int nrows, unsigned int ncols)
